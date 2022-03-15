@@ -1,3 +1,5 @@
+<img src="https://user-images.githubusercontent.com/60035342/158284985-f02cf3f1-48c1-489f-bfe7-8a85c516b97b.jpeg" width="300">
+
 ## Steps:
 1. Start Appium Server
 2. Start iOS Emulator
