@@ -1,10 +1,13 @@
-package testScript.gestures;
+package testScript.verifySauceLabs.gestures;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import uiElement.GenericPage;
-import uiElement.ProductsPage;
+import uiElement.SauceLabs.GenericPage;
+import uiElement.SauceLabs.LoginPage;
+import uiElement.SauceLabs.ProductsPage;
 import utils.AppDriver;
 import utils.BaseTest;
 import utils.UIGesture;
@@ -15,6 +18,18 @@ public class PerformSwipe extends BaseTest {
 
     GenericPage genericPage = new GenericPage();
     ProductsPage productsPage = new ProductsPage();
+    LoginPage loginPage = new LoginPage();
+
+    @BeforeMethod(alwaysRun = true)
+    public void setUp() {
+        AppDriver.activateApp();
+        loginPage.loginTheUser();
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void cleanUp() {
+        AppDriver.terminateApp();
+    }
 
     @Test(groups = {"Gestures", "Smoke"}, description = "This will perform swipe")
     public void performSwipe(){

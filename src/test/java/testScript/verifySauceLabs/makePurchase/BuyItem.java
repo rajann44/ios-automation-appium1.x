@@ -1,13 +1,13 @@
-package testScript.makePurchase;
+package testScript.verifySauceLabs.makePurchase;
 
 import helper.TestListeners;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import uiElement.GenericPage;
-import uiElement.ProductDetailPage;
-import uiElement.ProductsPage;
-import uiElement.YourCartPage;
+import uiElement.SauceLabs.*;
+import utils.AppDriver;
 import utils.BaseTest;
 import utils.UIGesture;
 
@@ -18,6 +18,18 @@ public class BuyItem extends BaseTest {
     ProductDetailPage productDetailPage = new ProductDetailPage();
     GenericPage genericPage = new GenericPage();
     YourCartPage yourCartPage = new YourCartPage();
+    LoginPage loginPage = new LoginPage();
+
+    @BeforeMethod(alwaysRun = true)
+    public void setUp() {
+        AppDriver.activateApp();
+        loginPage.loginTheUser();
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void cleanUp() {
+        AppDriver.terminateApp();
+    }
 
     @Test(groups = {"Core", "Smoke"}, description = "Make purchase of an item")
     public void verifyPurchaseOfAnItem(){
