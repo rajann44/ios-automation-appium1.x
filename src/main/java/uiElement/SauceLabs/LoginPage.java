@@ -1,9 +1,9 @@
-package uiElement;
+package uiElement.SauceLabs;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends GenericPage{
 
     //Std User
     @iOSXCUITFindBy(accessibility = "test-standard_user")

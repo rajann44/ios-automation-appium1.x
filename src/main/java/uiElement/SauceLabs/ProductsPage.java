@@ -1,4 +1,4 @@
-package uiElement;
+package uiElement.SauceLabs;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;

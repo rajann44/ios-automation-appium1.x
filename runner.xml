@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="iOS Mobile Automation" thread-count="1">
+    <test name = "iOS Automation Test Execution">
+        <groups>
+            <run>
+                <include name="RealSmoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="testScript.verifySauceLabs"/>
+            <package name="testScript.verifyUICatalog"/>
+        </packages>
+        <!--<classes>
+            <class name="testScript.verifySauceLabs.PerformSwipe"/>
+            <class name="testScript.verifySauceLabs.gestures.PerformPress"/>
+            <class name="testScript.verifySauceLabs.gestures.PerformSwipeFromTo"/>
+            <class name="testScript.verifySauceLabs.gestures.PerformTap"/>
+            <class name="testScript.verifySauceLabs.gestures.testScript.verifySauceLabs.gestures.webView"/>
+        </classes>-->
+    </test> <!-- Test -->
+</suite> <!-- Suite -->

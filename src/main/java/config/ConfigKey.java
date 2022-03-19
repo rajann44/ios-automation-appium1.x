@@ -5,8 +5,8 @@ import java.util.Properties;
 public class ConfigKey {
 
     public static String EXPLICIT_WAIT, DEVICE_NAME, DEVICE_UDID,
-            APP_BUNDLE_ID, APP_PATH, PLATFORM_VERSION;
-    public static boolean NO_RE_INSTALLATION_OF_APP;
+            APP_BUNDLE_ID, APP_PATH, PLATFORM_VERSION, XCODE_ORG_SIGNATURE_ID;
+    public static boolean RE_INSTALLATION_OF_APP, IS_REAL_DEVICE;
 
     public static void setConfig(Properties properties){
         EXPLICIT_WAIT = properties.getProperty("explicitWait");
@@ -15,7 +15,9 @@ public class ConfigKey {
         APP_BUNDLE_ID = properties.getProperty("appBundleID");
         APP_PATH = properties.getProperty("appPath");
         PLATFORM_VERSION = properties.getProperty("platformVersion");
-        NO_RE_INSTALLATION_OF_APP = Boolean.parseBoolean(properties.getProperty("noReInstallationOfApp"));
+        RE_INSTALLATION_OF_APP = Boolean.parseBoolean(properties.getProperty("reInstallationOfApp"));
+        IS_REAL_DEVICE = Boolean.parseBoolean(properties.getProperty("isRealDevice"));
+        XCODE_ORG_SIGNATURE_ID = properties.getProperty("xcodeOrgSignatureId");
     }
 
 }

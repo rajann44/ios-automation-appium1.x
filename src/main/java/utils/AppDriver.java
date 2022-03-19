@@ -25,8 +25,20 @@ public class AppDriver {
             ConfigHandler.readPropertiesFile();
             caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
             caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
+            caps.setCapability(IOSMobileCapabilityType.SHOW_XCODE_LOG, true);
             caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, ConfigKey.PLATFORM_VERSION);
             caps.setCapability(MobileCapabilityType.DEVICE_NAME, ConfigKey.DEVICE_NAME);
+            caps.setCapability(MobileCapabilityType.UDID, ConfigKey.DEVICE_UDID);
+
+
+            /********WHEN USING REAL DEVICE*********/
+            if (ConfigKey.IS_REAL_DEVICE){
+                caps.setCapability(IOSMobileCapabilityType.XCODE_ORG_ID,ConfigKey.XCODE_ORG_SIGNATURE_ID);
+                caps.setCapability(IOSMobileCapabilityType.XCODE_SIGNING_ID,"iPhone Developer");
+            }
+            //caps.setCapability(IOSMobileCapabilityType.UPDATE_WDA_BUNDLEID, "com.rajan.WebDriverAgentRunner");
+            //caps.setCapability("noReset", true);
+            //caps.setCapability("derivedDataPath", "/Users/rajan/Library/Developer/Xcode/DerivedData/WebDriverAgent-UNIQUE_ID");
 
             /********Use Below Capability if any issue when Launching WDA*********/
             //caps.setCapability(IOSMobileCapabilityType.WDA_STARTUP_RETRIES, "5");
@@ -37,14 +49,13 @@ public class AppDriver {
             //caps.setCapability(IOSMobileCapabilityType.AUTO_DISMISS_ALERTS, "true");
             //caps.setCapability(IOSMobileCapabilityType.AUTO_ACCEPT_ALERTS, "true");
 
-            if(!ConfigKey.NO_RE_INSTALLATION_OF_APP){
+            if(ConfigKey.RE_INSTALLATION_OF_APP){
                 caps.setCapability(MobileCapabilityType.APP, ConfigKey.APP_PATH);
                 caps.setCapability(IOSMobileCapabilityType.IOS_INSTALL_PAUSE, "8000");
             }
 
             //Pre-Req: App should be already installed on iOS
-            if(ConfigKey.NO_RE_INSTALLATION_OF_APP){
-                caps.setCapability(MobileCapabilityType.UDID, ConfigKey.DEVICE_UDID);
+            if(!ConfigKey.RE_INSTALLATION_OF_APP){
                 caps.setCapability(IOSMobileCapabilityType.BUNDLE_ID, ConfigKey.APP_BUNDLE_ID);
             }
 

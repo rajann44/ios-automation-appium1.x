@@ -1,4 +1,4 @@
-package testScript.browser;
+package testScript.verifySauceLabs.browser;
 
 import helper.TestListeners;
 import io.appium.java_client.ios.IOSDriver;
@@ -8,7 +8,7 @@ import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import uiElement.GenericPage;
+import uiElement.SauceLabs.GenericPage;
 import utils.BaseTest;
 
 @Listeners(TestListeners.class)
