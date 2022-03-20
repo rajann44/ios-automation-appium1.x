@@ -41,9 +41,11 @@ public class AppDriver {
             //caps.setCapability("derivedDataPath", "/Users/rajan/Library/Developer/Xcode/DerivedData/WebDriverAgent-UNIQUE_ID");
 
             /********Use Below Capability if any issue when Launching WDA*********/
-            //caps.setCapability(IOSMobileCapabilityType.WDA_STARTUP_RETRIES, "5");
-            //caps.setCapability(IOSMobileCapabilityType.WDA_STARTUP_RETRY_INTERVAL, "20000");
-            //caps.setCapability(IOSMobileCapabilityType.USE_NEW_WDA, "true");
+            if(ConfigKey.WDA_INSTALL_RETRY){
+                caps.setCapability(IOSMobileCapabilityType.WDA_STARTUP_RETRIES, "5");
+                caps.setCapability(IOSMobileCapabilityType.WDA_STARTUP_RETRY_INTERVAL, "20000");
+                caps.setCapability(IOSMobileCapabilityType.USE_NEW_WDA, "true");
+            }
 
             /********Use Below Capability to automatically handle alert*********/
             //caps.setCapability(IOSMobileCapabilityType.AUTO_DISMISS_ALERTS, "true");
